@@ -1,0 +1,26 @@
+server:
+  port: 5555
+  
+spring:
+  application:
+    name: 'api-gateway'
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: https://eureka-server-cadalso.herokuapp.com/eureka
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - "routes" #Essa palavra adiciona um endpoint na aplicação para exibir 
+                   #as rotas ou microserviços encontrados no Eureka Server
+                   
+zuul:
+  sensitive-headers:
+  - Cookies,Authorization
